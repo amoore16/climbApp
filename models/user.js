@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = newSchema({
+const userSchema = new Schema({
     firstName: String,
     lastName: String,
     email: String,
+    userName: String,
+    password: String,
     climbs: [{
         type: Schema.Types.ObjectId,
         ref: 'climb'
