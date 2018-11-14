@@ -12,4 +12,4 @@ const climbSchema  = new Schema({
 });
 
 const Climb = mongoose.model('climb', climbSchema);
-mongoose.exports = Climb;
+module.exports = Climb;
