@@ -50,7 +50,7 @@ module.exports = {
         const { climbId } = req.value.params;
         const climb = await Climb.findById(climbId);
         if (!climb) {
-            return res.status(404).json({error: 'Car doesn\'t exit'});
+            return res.status(404).json({error: 'Climb doesn\'t exit'});
         }
         const userId = climb.user;
         const user = await User.findById(userId);

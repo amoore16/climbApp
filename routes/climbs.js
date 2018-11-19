@@ -7,10 +7,16 @@ router.route('/')
     .post(validateBody(schemas.climbSchema),
         ClimbsController.newClimb);
 
-router.route('/:carId')
-    .get(validateParam(schemas.idSchema, 'carId'),
+router.route('/:climbId')
+    .get(validateParam(schemas.idSchema, 'climbId'),
         ClimbsController.getClimb)
-    .put([validateParam(schemas.idSchema, 'carId'),
+    .put([validateParam(schemas.idSchema, 'climbId'),
         validateBody(schemas.putClimbSchema)],
         ClimbsController.replaceClimb)
-    .patch([]);
+    .patch([validateParam(schemas.idSchema, 'climbId'),
+        validateBody(schemas.patchClimbSchema)],
+            ClimbsController.updateClimb)
+    .delete(validateParam(schemas.idSchema, 'climbId'),
+            ClimbsController.deleteClimb);
+
+module.exports = router;

@@ -11,7 +11,7 @@ const app = express();
 
 //routes import
 const users = require('./routes/users');
-// const climbs = require('./routes/climbs');
+const climbs = require('./routes/climbs');
 
 //middleware
 app.use(logger('dev'));
@@ -19,7 +19,7 @@ app.use(bodyparser.json());
 
 //routes
 app.use('/users', users);
-// app.use('/climbs', climbs);
+app.use('/climbs', climbs);
 
 //catch errors
 app.use((err, res, next) => {
