@@ -1,6 +1,10 @@
 const User = require('../models/user');
 const Climb = require('../models/climb');
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+
 module.exports = {
     //get all users
     index: async (req, res, next) => {
@@ -11,6 +15,8 @@ module.exports = {
     //new user
     newUser: async (req, res, next) => {
         const newUser = new User(req.value.body);
+        const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
+        newUser.password = hashPwd;
         const user = await newUser.save();
         res.status(201).json(user);
     },
