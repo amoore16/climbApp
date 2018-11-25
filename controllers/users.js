@@ -21,6 +21,10 @@ module.exports = {
         res.status(201).json(user);
     },
 
+    comparePassword: async (req, res, next) => {
+
+    }, 
+
     getUser: async (req, res, next) => {
         const { userId } = req.value.params;
         const user = await User.findById(userId);

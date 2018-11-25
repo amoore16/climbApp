@@ -16,11 +16,14 @@ router.route('/:userId')
     .patch([validateParam(schemas.idSchema, 'userId'),
         validateBody(schemas.userOptionalSchema)],
         UsersController.updateUser);
+
 router.route('/:userId/climbs')
     .get(validateParam(schemas.idSchema, 'userId'), UsersController.getUserClimbs)
     .post([validateParam(schemas.idSchema, 'userId'),
         validateBody(schemas.userClimbSchema)],
         UsersController.newUserClimb);
 
+router.route('/authenticate')
+    .post(UsersController.comparePassword);
 
 module.exports = router;
