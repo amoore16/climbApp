@@ -22,7 +22,20 @@ module.exports = {
     },
 
     comparePassword: async (req, res, next) => {
-
+        const { password }  = req.body;
+        const { userName } = req.body;
+        const query = { userName: userName };
+        const user = await User.findOne(query);
+        const match = await bcrypt.compare(password, user.password);
+        if (match) {
+            console.log('success')
+            res.status(200).json({ success: true });
+        } else {
+            console.log('invalid password');
+            res.status(400).json({ success: false, reason: 'invalid password'});
+        }
+        //using the authenticate route ie: user/authenticate...could make new route..
+        // bcrypt.compare 
     }, 
 
     getUser: async (req, res, next) => {
