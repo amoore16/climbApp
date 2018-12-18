@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Climb = require('../models/climb');
 
+// jwt here 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -20,7 +21,7 @@ module.exports = {
         const user = await newUser.save();
         res.status(201).json(user);
     },
-
+    //compare password/authenticate
     comparePassword: async (req, res, next) => {
         const { password }  = req.body;
         const { userName } = req.body;
