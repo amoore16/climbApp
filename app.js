@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const logger = require('morgan');
-
+const config = require('./config/database.js');
 //database connection
-mongoose.connect('mongodb://localhost/climbApi');
+
+
+mongoose.connect(config.database);
 
 //server
 const app = express();

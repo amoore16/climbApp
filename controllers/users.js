@@ -2,7 +2,7 @@ const User = require('../models/user');
 const Climb = require('../models/climb');
 
 // jwt here 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 
