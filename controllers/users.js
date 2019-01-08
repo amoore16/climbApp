@@ -4,7 +4,9 @@ const Climb = require('../models/climb');
 // jwt here 
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
-
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const config = require('../config/database');
 
 module.exports = {
     //get all users
@@ -29,6 +31,7 @@ module.exports = {
         const user = await User.findOne(query);
         const match = await bcrypt.compare(password, user.password);
         if (match) {
+            const token = jwt.sign
             console.log('success')
             res.status(200).json({ success: true });
         } else {
