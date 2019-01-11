@@ -49,7 +49,6 @@ module.exports = {
     },
 
     authUser: async (req, res, next) => {
-        console.log('res', res);        
         res.json({
             id: req.user._id,
             name: req.user.firstName + ' ' + req.user.lastName,

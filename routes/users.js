@@ -22,6 +22,4 @@ router.route('/auth')
     .get(passport.authenticate('jwt', {session: false}), UsersController.authUser)
     .post(UsersController.comparePassword);
 
-// router.route('/profile')
-//     .get();
 module.exports = router;
