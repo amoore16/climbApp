@@ -17,7 +17,7 @@ module.exports = {
 
     //new user
     newUser: async (req, res, next) => {
-        const newUser = new User(req.value.body);
+        const newUser = new User(req.body);
         const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
         newUser.password = hashPwd;
         const user = await newUser.save();
@@ -31,21 +31,32 @@ module.exports = {
         const user = await User.findOne(query);
         const match = await bcrypt.compare(password, user.password);
         if (match) {
-            const token = jwt.sign
-            console.log('success')
-            res.status(200).json({ success: true });
+            const token = await jwt.sign({sub: user._id}, config.secret, {
+                expiresIn: 604800
+            });
+            res.status(200).json({ 
+                success: true,
+                token: 'JWT' + token,
+                user: {
+                    id: user._id,
+                    userName: user.userName
+                }
+            });
         } else {
             console.log('invalid password');
             res.status(400).json({ success: false, reason: 'invalid password'});
         }
-        //using the authenticate route ie: user/authenticate...could make new route..
-        // bcrypt.compare 
-    }, 
+    },
 
-    getUser: async (req, res, next) => {
-        const { userId } = req.value.params;
-        const user = await User.findById(userId);
-        res.status(200).json(user);
+    authUser: async (req, res, next) => {
+        console.log('res', res);        
+        res.json({
+            id: req.user._id,
+            name: req.user.firstName + ' ' + req.user.lastName,
+            userName: req.user.userName,
+            email: req.user.email,
+            climbs: req.user.climbs
+        });
     },
 
     replaceUser: async (req, res, next) => {

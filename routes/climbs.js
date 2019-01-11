@@ -4,19 +4,12 @@ const { validateParam, validateBody, schemas } = require('../helpers/routeHelper
 
 router.route('/')
     .get(ClimbsController.index)
-    .post(validateBody(schemas.climbSchema),
-        ClimbsController.newClimb);
+    .post(ClimbsController.newClimb);
 
 router.route('/:climbId')
-    .get(validateParam(schemas.idSchema, 'climbId'),
-        ClimbsController.getClimb)
-    .put([validateParam(schemas.idSchema, 'climbId'),
-        validateBody(schemas.putClimbSchema)],
-        ClimbsController.replaceClimb)
-    .patch([validateParam(schemas.idSchema, 'climbId'),
-        validateBody(schemas.patchClimbSchema)],
-            ClimbsController.updateClimb)
-    .delete(validateParam(schemas.idSchema, 'climbId'),
-            ClimbsController.deleteClimb);
+    .get(ClimbsController.getClimb)
+    .put(ClimbsController.replaceClimb)
+    .patch(ClimbsController.updateClimb)
+    .delete(ClimbsController.deleteClimb);
 
 module.exports = router;

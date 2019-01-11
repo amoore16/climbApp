@@ -5,10 +5,10 @@ const config = require('../config/database');
 
 module.exports = function(passport) {
     let opts = {};
-    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
+    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken('jwt');
     opts.secretOrKey = config.secret;
     passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-        User.getUserById({_id: jwt_payload.sub}, (err, user) => {
+        User.findById({_id: jwt_payload.sub}, (err, user) => {
             if (err) {
                 return done(err, false);
             }
