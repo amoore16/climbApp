@@ -36,7 +36,7 @@ module.exports = {
             });
             res.status(200).json({ 
                 success: true,
-                token: 'JWT' + token,
+                token: 'JWT ' + token,
                 user: {
                     id: user._id,
                     userName: user.userName
