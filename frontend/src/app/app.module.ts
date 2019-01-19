@@ -12,6 +12,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
@@ -34,6 +37,8 @@ const appRoutes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
