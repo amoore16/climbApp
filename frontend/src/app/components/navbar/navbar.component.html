@@ -1,8 +1,14 @@
-<mat-menu #appMenu="matMenu">
-  <button mat-menu-item>Settings</button>
-  <button mat-menu-item>Help</button>
-</mat-menu>
+<mat-toolbar color="primary">
+  <span>ClimbOn!</span>
 
-<button mat-icon-button [matMenuTriggerFor]="appMenu">
-  <mat-icon>more_vert</mat-icon>
-</button>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+
+  <span>
+      <button mat-raised-button>Login</button>
+  </span>
+</mat-toolbar>
+  
+
+
+
