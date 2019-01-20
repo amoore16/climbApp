@@ -1,9 +1,9 @@
 .wrapper {
-    border: 1px solid rgba(255, 255, 255, 0.03);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
     margin: 4px auto;
     margin-top: 5%;
-    width: 50%;
+    min-width: 200px;
+    max-width: 350px;;
 }
 
 .wrapper-title {
@@ -17,20 +17,22 @@
 
 .title-spacer {
     flex: 1 1 auto;
-    color: rgba(255, 255, 255, 0.5);
-    padding: 8px 20px;
+    padding: 15px 20px;
+    color: white;
 }
 
 .content-wrapper {
     padding: 10px;
-    /* margin-top: 10px; */
     background-color: rgba(0, 0, 0, 0.24);
+    min-height: 300px;
+
 }
 
 .input-form {
     min-width: 150px;
-    max-width: 500px;
+    max-width: 250px;
     width: 100%;
+    margin: 20px auto;
 }
   
 .full-width {
