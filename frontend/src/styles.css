@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+* {
+    font-family: 'Roboto', sans-serif;
+}
 
 body {
     background-color: #424242;
@@ -11,3 +14,4 @@ body {
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
+

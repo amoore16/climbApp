@@ -3,12 +3,14 @@
     terrain
     </i>
   <span>ClimbOn!</span>
+  <button mat-button [routerLink]="['/']">Home</button>
 
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
 
   <span>
-      <button mat-raised-button>Login</button>
+      <button mat-raised-button [routerLink]="['/login']" routerLinkActive="active-link">Login</button>
+      <button mat-raised-button [routerLink]="['/register']" routerLinkActive="active-link">Register</button>
   </span>
 </mat-toolbar>
   

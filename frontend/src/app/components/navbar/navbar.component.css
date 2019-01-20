@@ -1,0 +1,8 @@
+.mat-button, .mat-raised-button {
+    margin: 2px;
+}
+
+.active-link {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #69f0ae;
+}
