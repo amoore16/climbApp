@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$climb-app-primary: mat-palette($mat-light-blue);
+$climb-app-accent: mat-palette($mat-blue, A200, A100, A400);
+$background-color: #000000;
+
+$climb-app-theme: mat-light-theme($climb-app-primary, $climb-app-accent);
+
+$background: map-get($climb-app-theme, background);
+$background: map_merge($background, (background: $background-color));
+$climb-app-theme: map_merge($climb-app-theme, (background: $background));
+
+@include angular-material-theme($climb-app-theme);

@@ -11,19 +11,15 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    color: white;
-    background: rgba(255, 255, 255, 0.03);
 }
 
 .title-spacer {
     flex: 1 1 auto;
     padding: 15px 20px;
-    color: white;
 }
 
 .content-wrapper {
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.24);
     min-height: 300px;
 
 }
