@@ -1,9 +1,12 @@
+/* @import '../../../theme.scss'; */
+
 .wrapper {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
     margin: 4px auto;
     margin-top: 5%;
     min-width: 200px;
-    max-width: 350px;;
+    max-width: 350px;
+    background-color: #ddd;
 }
 
 .wrapper-title {

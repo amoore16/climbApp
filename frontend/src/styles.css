@@ -5,6 +5,17 @@
 
 body {
     margin: 0;
+    background:url("./assets/background.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-card {
+    min-width: 250px;
+    max-width: 400px;
+    min-height: 200px;
+    margin: 40px auto;
 }
 
 .fill-remaining-space {
