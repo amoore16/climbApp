@@ -1,3 +1,38 @@
-<p>
-  register works!
-</p>
+<div class="wrapper">
+  <div class="wrapper-title" color="primary">
+      <mat-toolbar color="primary">
+          Register
+      </mat-toolbar>
+  </div>
+  <div class="content-wrapper">
+    <div class="content-view">
+      <form class="input-form">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Firstname">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Lastname">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Username">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput type="password" placeholder="Password">
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="content-footer">
+      <mat-toolbar class="align-toolbar"> 
+          <span></span>
+          <span class="fill-remaining-space"></span>
+          <span><button mat-raised-button color="accent">
+              Submit
+            </button>
+          </span>
+      </mat-toolbar>
+    </div>
+  </div>
+</div>

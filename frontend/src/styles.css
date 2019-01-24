@@ -24,15 +24,14 @@ body {
     flex: 1 1 auto;
 }
 
-.content-footer {
-    margin: 45px 25px;
-    float: right;
+.align-toolbar {
+    background-color: #fff !important;
 }
 
 .wrapper {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
     margin: 4px auto;
-    margin-top: 5%;
+    margin-top: 2%;
     min-width: 200px;
     max-width: 350px;
     background-color: #fff;
