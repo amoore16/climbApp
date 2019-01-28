@@ -6,21 +6,21 @@
   </div>
   <div class="content-wrapper">
     <div class="content-view">
-      <form class="input-form">
+      <form class="input-form" (submit)="onRegisterSubmit()">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Firstname">
+          <input matInput placeholder="Firstname" [(ngModel)]="firstname">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Lastname">
+          <input matInput placeholder="Lastname" [(ngModel)]="lastname">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Email" [(ngModel)]="email">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" [(ngModel)]="username">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Password">
+          <input matInput type="password" placeholder="Password" [(ngModel)]="password">
         </mat-form-field>
       </form>
     </div>
@@ -28,7 +28,8 @@
       <mat-toolbar class="align-toolbar"> 
           <span></span>
           <span class="fill-remaining-space"></span>
-          <span><button mat-raised-button color="accent">
+          <span>
+            <button mat-raised-button color="accent">
               Submit
             </button>
           </span>
