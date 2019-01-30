@@ -14,7 +14,6 @@ body {
 .inner-container {
     padding: 2vw;
     background-color:#33691e;
-    border-radius: 1rem;
     color: white;
     text-align: center;
 }
@@ -26,10 +25,9 @@ body {
 #home-container {
     background-color: white;
     min-width: 30rem;
-    max-width: 50rem;
+    max-width: 35rem;
     margin: 1rem auto;
     padding: 1rem;
-    border-radius: 1rem;
 }
 
 #home-title {
@@ -80,7 +78,7 @@ body {
 
 .content-wrapper {
     padding: 10px;
-    min-height: 288px;
+    min-height: 20vh;
 
 }
 
