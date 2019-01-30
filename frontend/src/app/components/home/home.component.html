@@ -1,1 +1,14 @@
-
+<div id="home-container">
+    <h1 id="home-title">Welcome to ClimbOn!</h1>
+    <div class="inner-container">
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile><p>ClimbOn allows you to save your climbs in an easy to manage place</p></mat-grid-tile>
+            <mat-grid-tile><p>Please sign in to take full advantage of this application</p></mat-grid-tile>
+        </mat-grid-list>
+        <mat-divider></mat-divider>
+        <span id="home-buttons">
+            <button mat-raised-button [routerLink]="['/login']" routerLinkActive="active-link">Login</button>
+            <button mat-raised-button [routerLink]="['/register']" routerLinkActive="active-link">Register</button>
+        </span>
+    </div>
+</div>

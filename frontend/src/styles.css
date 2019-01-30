@@ -11,6 +11,32 @@ body {
     background-size: cover;
 }
 
+.inner-container {
+    padding: 2vw;
+    background-color:#33691e;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+}
+
+#home-buttons button {
+    margin: 5vh .25vw;
+}
+
+#home-container {
+    background-color: white;
+    min-width: 30rem;
+    max-width: 50rem;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#home-title {
+    text-align: center;
+    padding: 2rem;
+}
+
 .login-card {
     min-width: 250px;
     max-width: 400px;

@@ -6,7 +6,7 @@
   </div>
   <div class="content-wrapper">
     <div class="content-view">
-      <form class="input-form">
+      <form class="input-form" (submit)="onRegisterSubmit()">
         <mat-form-field class="full-width">
           <input matInput placeholder="Firstname">
         </mat-form-field>
@@ -28,7 +28,8 @@
       <mat-toolbar class="align-toolbar"> 
           <span></span>
           <span class="fill-remaining-space"></span>
-          <span><button mat-raised-button color="accent">
+          <span>
+            <button mat-raised-button color="accent">
               Submit
             </button>
           </span>
