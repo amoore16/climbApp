@@ -8,32 +8,32 @@
     <div class="content-view">
       <form class="input-form" (submit)="onRegisterSubmit()">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Firstname">
+          <input matInput type="text" placeholder="Firstname" [(ngModel)]="firstname" name="firstname">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Lastname">
+          <input matInput type="text" placeholder="Lastname" [(ngModel)]="lastname" name="lastname">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Email">
+          <input matInput type="text" placeholder="Username" [(ngModel)]="username" name="username">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Username">
+          <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Password">
+          <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password">
         </mat-form-field>
+        <div class="content-footer">
+            <mat-toolbar class="align-toolbar"> 
+                <span></span>
+                <span class="fill-remaining-space"></span>
+                <span>
+                  <button mat-raised-button color="accent" type="submit">
+                    Submit
+                  </button>
+                </span>
+            </mat-toolbar>
+          </div>
       </form>
-    </div>
-    <div class="content-footer">
-      <mat-toolbar class="align-toolbar"> 
-          <span></span>
-          <span class="fill-remaining-space"></span>
-          <span>
-            <button mat-raised-button color="accent">
-              Submit
-            </button>
-          </span>
-      </mat-toolbar>
     </div>
   </div>
 </div>
