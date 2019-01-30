@@ -11,6 +11,30 @@ body {
     background-size: cover;
 }
 
+mat-grid-list {
+    box-shadow: 1px 1px black;
+}
+
+mat-grid-tile {
+    box-shadow: 1px 1px black;
+    border-radius: 1rem;
+
+}
+
+#home-container {
+    background-color: white;
+    min-width: 30rem;
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+#home-title {
+    text-align: center;
+    padding: 2rem;
+}
+
 .login-card {
     min-width: 250px;
     max-width: 400px;
