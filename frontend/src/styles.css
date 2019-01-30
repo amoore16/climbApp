@@ -11,22 +11,24 @@ body {
     background-size: cover;
 }
 
-mat-grid-list {
-    box-shadow: 1px 1px black;
+.inner-container {
+    padding: 2vw;
+    background-color:#33691e;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
 }
 
-mat-grid-tile {
-    box-shadow: 1px 1px black;
-    border-radius: 1rem;
-
+#home-buttons button {
+    margin: 5vh .25vw;
 }
 
 #home-container {
     background-color: white;
     min-width: 30rem;
     max-width: 50rem;
-    margin: 2rem auto;
-    padding: 2rem;
+    margin: 1rem auto;
+    padding: 1rem;
     border-radius: 1rem;
 }
 
