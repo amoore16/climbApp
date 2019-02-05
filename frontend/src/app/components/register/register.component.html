@@ -6,21 +6,21 @@
   </div>
   <div class="content-wrapper">
     <div class="content-view">
-      <form class="input-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <form class="input-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="none">
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Firstname" formControlName="firstname" name="firstnameNoAuto" autocomplete="nope">
+          <input matInput type="text" placeholder="Firstname" formControlName="firstname" name="firstnameNoAuto" autocomplete="none" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Lastname" formControlName="lastname" name="lastnameNoAuto" autocomplete="nope">
+          <input matInput type="text" placeholder="Lastname" formControlName="lastname" name="lastnameNoAuto" autocomplete="none" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Username" formControlName="username" name="usernameNoAuto" autocomplete="nope">
+          <input matInput type="text" placeholder="Username" formControlName="username" name="usernameNoAuto" autocomplete="none" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="email" placeholder="Email" formControlName="email" name="emailNoAuto" autocomplete="nope">
+          <input matInput type="email" placeholder="Email" formControlName="email" name="emailNoAuto" autocomplete="none" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Password" formControlName="password" name="passwordNoAuto" autocomplete="nope">
+          <input matInput type="password" placeholder="Password" formControlName="password" name="passwordNoAuto" autocomplete="none" required>
         </mat-form-field>
         <div class="content-footer">
             <mat-toolbar class="align-toolbar"> 

@@ -9,10 +9,8 @@ export class ValidateService {
 
   registerValidate(user) {
     if(!user.firstname || !user.lastname || !user.username || !user.email || !user.password) {
-      console.log('false');
       return false;
     } else {
-      console.log(user);
       return true;
     }
   }
