@@ -6,21 +6,21 @@
   </div>
   <div class="content-wrapper">
     <div class="content-view">
-      <form class="input-form" (submit)="onRegisterSubmit()" autocomplete="nope">
+      <form class="input-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Firstname" [(ngModel)]="firstname" name="firstnameNoAuto" autocomplete="nope">
+          <input matInput type="text" placeholder="Firstname" formControlName="firstname" name="firstnameNoAuto" autocomplete="nope">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Lastname" [(ngModel)]="lastname" name="lastnameNoAuto" autocomplete="nope">
+          <input matInput type="text" placeholder="Lastname" formControlName="lastname" name="lastnameNoAuto" autocomplete="nope">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="text" placeholder="Username" [(ngModel)]="username" name="usernameNoAuto" autocomplete="nope">
+          <input matInput type="text" placeholder="Username" formControlName="username" name="usernameNoAuto" autocomplete="nope">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="emailNoAuto" autocomplete="nope">
+          <input matInput type="email" placeholder="Email" formControlName="email" name="emailNoAuto" autocomplete="nope">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="passwordNoAuto" autocomplete="nope">
+          <input matInput type="password" placeholder="Password" formControlName="password" name="passwordNoAuto" autocomplete="nope">
         </mat-form-field>
         <div class="content-footer">
             <mat-toolbar class="align-toolbar"> 
