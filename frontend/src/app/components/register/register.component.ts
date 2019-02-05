@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ValidateService } from '../../services/validate.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -7,25 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   
-  firstname: String;
-  lastname: String;
-  username: String;
-  email: String;
-  password: String;
+  registerForm = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    username: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl('')  
+  });
   
-  constructor() { }
+  constructor(private validateService: ValidateService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  onRegisterSubmit() {
-    const user = {
-      firstname: this.firstname,
-      lastname: this.lastname,
-      username: this.username,
-      email: this.email,
-      password: this.password
+  onSubmit() {
+    if(!this.validateService.registerValidate(this.registerForm.value)){
+      this.openSnackBar("Required Fields not met", "close");
+    } else {
+      this.openSnackBar("Success!", "close");
+      this.registerForm.reset('');
     }
   }
 
+  openSnackBar(message, action){
+    this.snackBar.open(message, action, {
+      duration: 5000,
+      verticalPosition: 'top'
+    });
+  }
 }

@@ -16,6 +16,7 @@ body {
     background-color:#33691e;
     color: white;
     text-align: center;
+    margin: -16px;
 }
 
 #home-buttons button {
@@ -26,13 +27,14 @@ body {
     background-color: white;
     min-width: 30rem;
     max-width: 35rem;
-    margin: 1rem auto;
+    margin: 2.5rem auto;
     padding: 1rem;
 }
 
 #home-title {
     text-align: center;
     padding: 2rem;
+    margin-bottom: 5vh;
 }
 
 .login-card {
