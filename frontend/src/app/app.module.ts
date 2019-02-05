@@ -17,6 +17,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
+import { ValidateService } from './services/validate.service';
+
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
@@ -45,7 +47,7 @@ const appRoutes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
