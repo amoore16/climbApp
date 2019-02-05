@@ -8,9 +8,11 @@ export class ValidateService {
   constructor() { }
 
   registerValidate(user) {
-    if((user.firstname || user.lastname || user.username || user.email || user.password) == undefined) {
+    if(!user.firstname || !user.lastname || !user.username || !user.email || !user.password) {
+      console.log('false');
       return false;
     } else {
+      console.log(user);
       return true;
     }
   }
