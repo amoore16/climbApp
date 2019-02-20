@@ -4,6 +4,8 @@ const bodyparser = require('body-parser');
 const logger = require('morgan');
 const config = require('./config/database.js');
 const passport = require('passport');
+const cors = require('cors');
+
 //database connection
 
 
@@ -16,6 +18,7 @@ const app = express();
 const users = require('./routes/users');
 const climbs = require('./routes/climbs');
 
+app.use(cors());
 //middleware
 app.use(logger('dev'));
 app.use(bodyparser.json());
@@ -23,6 +26,7 @@ app.use(bodyparser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passport')(passport);
+
 
 //routes
 app.use('/users', users);
