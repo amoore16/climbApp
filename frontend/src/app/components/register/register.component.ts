@@ -20,9 +20,9 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('')  
   });
   
-  constructor(private validateService: ValidateService,
-              public snackBar: MatSnackBar,
-              private userService: UserService
+  constructor( private validateService: ValidateService,
+               public snackBar: MatSnackBar,
+               private userService: UserService
             ) { }
 
   ngOnInit() {
@@ -46,9 +46,7 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser(user) {
-    this.userService.addUser(user).subscribe(data => {
-      console.log(data);
-    });
+    this.userService.addUser(user).subscribe(() => {});
   }
 
 
