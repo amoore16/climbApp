@@ -24,7 +24,6 @@ export class UserService {
 
   addUser(user: User): Observable<User>{
     console.log(user);
-    
     return this.http.post<User>(this.usersUrl, user, httpOptions).pipe(
       tap(data => console.log(data))
     );
