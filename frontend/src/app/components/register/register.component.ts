@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ValidateService } from '../../services/validate.service';
 import { MatSnackBar } from '@angular/material';
 
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,7 +20,10 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('')  
   });
   
-  constructor(private validateService: ValidateService, public snackBar: MatSnackBar) { }
+  constructor(private validateService: ValidateService,
+              public snackBar: MatSnackBar,
+              private userService: UserService
+            ) { }
 
   ngOnInit() {
   }
@@ -27,6 +32,7 @@ export class RegisterComponent implements OnInit {
     if(!this.validateService.registerValidate(this.registerForm.value)){
       this.openSnackBar("Required Fields not met", "close");
     } else {
+      this.addUser(this.registerForm.value);
       this.openSnackBar("Success!", "close");
       this.registerForm.reset('');
     }
@@ -38,4 +44,12 @@ export class RegisterComponent implements OnInit {
       verticalPosition: 'top'
     });
   }
+
+  addUser(user) {
+    this.userService.addUser(user).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+
 }

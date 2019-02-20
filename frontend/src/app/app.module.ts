@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 
 import { ValidateService } from './services/validate.service';
+import { UserService } from './services/user.service';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,7 @@ const appRoutes = [
     HomeComponent,
     RegisterComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,7 @@ const appRoutes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ValidateService],
+  providers: [ValidateService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
