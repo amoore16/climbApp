@@ -23,7 +23,6 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User>{
-    console.log(user);
     return this.http.post<User>(this.usersUrl, user, httpOptions).pipe(
       tap(data => console.log(data))
     );
@@ -31,8 +30,17 @@ export class UserService {
 
   authenticateUser(user: User): Observable<User>{
     return this.http.post<User>(this.usersUrl + 'auth', user, httpOptions).pipe(
-      tap(data => console.log(data))
+      tap(data => {return data}),
+      catchError(this.handleError<any>('authenticateUser'))
     );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error)
+
+      return of(result as T);
+    }
   }
   
 }

@@ -29,6 +29,12 @@ module.exports = {
         const { userName } = req.body;
         const query = { userName: userName };
         const user = await User.findOne(query);
+        if (!user) {
+            res.status(404).json({
+                success: false,
+                reason: 'user not found'
+            });
+        }
         const match = await bcrypt.compare(password, user.password);
         if (match) {
             const token = await jwt.sign({sub: user._id}, config.secret, {
