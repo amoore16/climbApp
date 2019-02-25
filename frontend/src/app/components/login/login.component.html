@@ -6,12 +6,12 @@
   </div>
   <div class="content-wrapper">
     <div class="content-view">
-      <form class="input-form" (submit)="onLoginSubmit()">
+      <form class="input-form" [formGroup]="loginForm" (submit)="onLoginSubmit()">
         <mat-form-field class="full-width">
-          <input matInput placeholder="Username">
+          <input matInput placeholder="Username" type="text" formControlName="userName">
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput type="password" placeholder="Password">
+          <input matInput type="password" placeholder="Password" formControlName="password">
         </mat-form-field>
         <div class="content-footer">
           <mat-toolbar class="align-toolbar"> 
