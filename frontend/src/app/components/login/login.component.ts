@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
+
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   onLoginSubmit() {
     this.userService.authenticateUser(this.loginForm.value)
-    .subscribe(data => console.log(data)
+    .subscribe(data => console.log('Data log', data)
     ); 
 
   }

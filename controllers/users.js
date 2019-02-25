@@ -34,6 +34,7 @@ module.exports = {
                 success: false,
                 reason: 'user not found'
             });
+            return;
         }
         const match = await bcrypt.compare(password, user.password);
         if (match) {
