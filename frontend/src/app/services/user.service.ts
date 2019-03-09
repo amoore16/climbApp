@@ -28,10 +28,12 @@ export class UserService {
     );
   }
 
-  authenticateUser(user: User): Observable<User>{
+  authenticateUser(user: User): Observable<any>{
     return this.http.post<User>(this.usersUrl + 'auth', user, httpOptions).pipe(
-      tap(data => {return data}),
-      catchError(this.handleError<any>('authenticateUser'))
+      tap(
+        data => {return data},
+        ),
+        catchError( err => {return err})
     );
   }
 

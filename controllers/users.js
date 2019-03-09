@@ -30,9 +30,9 @@ module.exports = {
         const query = { userName: userName };
         const user = await User.findOne(query);
         if (!user) {
-            res.status(404).json({
+            res.json({
                 success: false,
-                reason: 'user not found'
+                reason: 'User not found'
             });
             return;
         }
@@ -50,8 +50,7 @@ module.exports = {
                 }
             });
         } else {
-            console.log('invalid password');
-            res.status(400).json({ success: false, reason: 'invalid password'});
+            res.json({ success: false, reason: 'Invalid password'});
         }
     },
 

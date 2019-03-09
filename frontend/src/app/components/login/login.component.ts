@@ -17,18 +17,38 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor( public snackBar: MatSnackBar,
-               private userService: UserService
-              ) { }
+  response: { success: boolean, reason: string };
+
+  constructor(public snackBar: MatSnackBar,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
   }
 
   onLoginSubmit() {
     this.userService.authenticateUser(this.loginForm.value)
-    .subscribe(data => console.log('Data log', data)
-    ); 
+      .subscribe(
+        data => {
+          if (data.success) {
+            this.openSnackBar("Successfully Logged in", "close");
+            console.log(data.user);
+            this.loginForm.reset('');
+          }
+          else {
+            this.openSnackBar(data.reason, "close");
+            this.loginForm.controls['password'].reset('');
+            console.log(data.reason);
+          }
+        }
+      );
+  }
 
+  openSnackBar(message, action){
+    this.snackBar.open(message, action, {
+      duration: 5000,
+      verticalPosition: 'top'
+    });
   }
 
 }
