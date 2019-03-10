@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ValidateService } from '../../services/validate.service';
 import { MatSnackBar } from '@angular/material';
 
+import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
   
   constructor( private validateService: ValidateService,
                public snackBar: MatSnackBar,
-               private userService: UserService
+               private userService: UserService,
+               private router: Router
             ) { }
 
   ngOnInit() {
@@ -33,8 +35,6 @@ export class RegisterComponent implements OnInit {
       this.openSnackBar("Required Fields not met", "close");
     } else {
       this.addUser(this.registerForm.value);
-      this.openSnackBar("Success!", "close");
-      this.registerForm.reset('');
     }
   }
 
@@ -46,7 +46,20 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser(user) {
-    this.userService.addUser(user).subscribe(() => {});
+    this.userService.addUser(user).subscribe((data) => {
+      if (data.success) {
+        this.openSnackBar("Successfully Registered!", "close");
+        this.registerForm.reset('');
+        setTimeout(() =>{
+          this.router.navigate(['/login']);
+        }, 1000);
+      } else {
+        this.openSnackBar(data.reason, "close");
+        console.log(data);
+        this.registerForm.reset('');
+      }
+
+    });
   }
 
 

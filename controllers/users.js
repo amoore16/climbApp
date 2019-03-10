@@ -17,11 +17,22 @@ module.exports = {
 
     //new user
     newUser: async (req, res, next) => {
-        const newUser = new User(req.body);
-        const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
-        newUser.password = hashPwd;
-        const user = await newUser.save();
-        res.status(201).json(user);
+        const { userName } = req.body;
+        const query = { userName: userName };
+        const existingUser = await User.findOne(query);
+        if (existingUser) {
+            res.json({
+                success: false,
+                reason: 'User Already exists'
+            });
+        } else {
+            const newUser = new User(req.body);
+            const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
+            newUser.password = hashPwd;
+            const user = await newUser.save();
+            res.status(201).json(user);
+        }
+        
     },
     //compare password/authenticate
     comparePassword: async (req, res, next) => {
