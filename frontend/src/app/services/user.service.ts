@@ -22,16 +22,19 @@ export class UserService {
     return this.http.get<User>(this.usersUrl)
   }
 
-  addUser(user: User): Observable<User>{
+  addUser(user: User): Observable<any>{
     return this.http.post<User>(this.usersUrl, user, httpOptions).pipe(
-      tap(data => console.log(data))
+      tap(data => { return data},
+          err => {return err})
     );
   }
 
-  authenticateUser(user: User): Observable<User>{
+  authenticateUser(user: User): Observable<any>{
     return this.http.post<User>(this.usersUrl + 'auth', user, httpOptions).pipe(
-      tap(data => {return data}),
-      catchError(this.handleError<any>('authenticateUser'))
+      tap(
+        data => {return data},
+        ),
+        catchError( err => {return err})
     );
   }
 

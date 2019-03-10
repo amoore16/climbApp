@@ -17,11 +17,22 @@ module.exports = {
 
     //new user
     newUser: async (req, res, next) => {
-        const newUser = new User(req.body);
-        const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
-        newUser.password = hashPwd;
-        const user = await newUser.save();
-        res.status(201).json(user);
+        const { userName } = req.body;
+        const query = { userName: userName };
+        const existingUser = await User.findOne(query);
+        if (existingUser) {
+            res.json({
+                success: false,
+                reason: 'User Already exists'
+            });
+        } else {
+            const newUser = new User(req.body);
+            const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
+            newUser.password = hashPwd;
+            const user = await newUser.save();
+            res.status(201).json(user);
+        }
+        
     },
     //compare password/authenticate
     comparePassword: async (req, res, next) => {
@@ -30,9 +41,9 @@ module.exports = {
         const query = { userName: userName };
         const user = await User.findOne(query);
         if (!user) {
-            res.status(404).json({
+            res.json({
                 success: false,
-                reason: 'user not found'
+                reason: 'User not found'
             });
             return;
         }
@@ -50,8 +61,7 @@ module.exports = {
                 }
             });
         } else {
-            console.log('invalid password');
-            res.status(400).json({ success: false, reason: 'invalid password'});
+            res.json({ success: false, reason: 'Invalid password'});
         }
     },
 
