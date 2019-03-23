@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-
+import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
 
@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
   response: { success: boolean, reason: string };
 
   constructor(public snackBar: MatSnackBar,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,6 +35,9 @@ export class LoginComponent implements OnInit {
             this.openSnackBar("Successfully Logged in", "close");
             console.log(data.user);
             this.loginForm.reset('');
+            setTimeout(() => {
+              this.router.navigate(['/dashboard']);
+            }, 1500);
           }
           else {
             this.openSnackBar(data.reason, "close");
