@@ -1,6 +1,6 @@
 table {
     width: 100%;
-  }
+}
 
   mat-grid-tile {
     background: white;
@@ -8,4 +8,5 @@ table {
 
 #table-container {
     width: 600px;
+    margin: 100px auto;
 }

@@ -19,13 +19,15 @@ import { MaterialModule } from './material/material.module';
 
 import { ValidateService } from './services/validate.service';
 import { UserService } from './services/user.service';
+import { ClimbsComponent } from './components/climbs/climbs.component';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'climbs', component: ClimbsComponent }
 ]
 
 @NgModule({
@@ -37,6 +39,7 @@ const appRoutes = [
     RegisterComponent,
     ProfileComponent,
     DashboardComponent,
+    ClimbsComponent,
   ],
   imports: [
     BrowserModule,

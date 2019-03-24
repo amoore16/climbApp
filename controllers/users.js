@@ -30,7 +30,7 @@ module.exports = {
             const hashPwd = await bcrypt.hash(newUser.password, saltRounds);
             newUser.password = hashPwd;
             const user = await newUser.save();
-            res.status(201).json(user);
+            res.status(201).json({success: true, user});
         }
         
     },
