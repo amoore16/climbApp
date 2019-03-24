@@ -18,6 +18,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  user: any;
+  authToken: any;
+
   getUsers(): Observable<User> {
     return this.http.get<User>(this.usersUrl)
   }
@@ -36,6 +39,17 @@ export class UserService {
         ),
         catchError( err => {return err})
     );
+  }
+
+  storeUserData(token, user){
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+  }
+
+  getProfile(){
+    
   }
 
   private handleError<T> (operation = 'operation', result?: T) {
