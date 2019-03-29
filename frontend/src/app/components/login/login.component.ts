@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           if (data.success) {
+            this.userService.storeUserData(data.token, data.user);
             this.openSnackBar("Successfully Logged in", "close");
             console.log(data.user);
             this.loginForm.reset('');

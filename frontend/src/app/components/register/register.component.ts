@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit {
 
   addUser(user) {
     this.userService.addUser(user).subscribe((data) => {
+      console.log('data', data);
       if (data.success) {
         this.openSnackBar("Successfully Registered!", "close");
         this.registerForm.reset('');
