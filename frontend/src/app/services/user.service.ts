@@ -48,6 +48,12 @@ export class UserService {
     this.user = user;
   }
 
+  logOut(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
+
   getProfile(){
     
   }
