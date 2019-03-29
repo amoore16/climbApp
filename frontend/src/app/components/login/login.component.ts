@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   response: { success: boolean, reason: string };
 
-  constructor(public snackBar: MatSnackBar,
+  constructor(
+    public snackBar: MatSnackBar,
     private userService: UserService,
     private router: Router
   ) { }
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
             this.loginForm.reset('');
             setTimeout(() => {
               this.router.navigate(['/dashboard']);
-            }, 1500);
+            }, 500);
           }
           else {
             this.openSnackBar(data.reason, "close");
