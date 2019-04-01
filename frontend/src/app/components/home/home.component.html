@@ -2,13 +2,28 @@
     <h1 id="home-title">Welcome to ClimbOn!</h1>
     <div class="inner-container">
         <mat-grid-list cols="2" rowHeight="2:1">
-            <mat-grid-tile><p>ClimbOn allows you to save your climbs in an easy to manage place</p></mat-grid-tile>
-            <mat-grid-tile><p>Please sign in to take full advantage of this application</p></mat-grid-tile>
+            <mat-grid-tile>
+                <p>ClimbOn allows you to save, view and share your recent climbs with other users.
+                </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <i class="material-icons home-icon">
+                    terrain
+                </i>
+                <i class="material-icons home-icon">
+                    backup
+                </i>
+                <i class="material-icons home-icon">
+                    account_circle
+                </i>
+            </mat-grid-tile>
         </mat-grid-list>
         <mat-divider></mat-divider>
-        <span id="home-buttons">
-            <button mat-raised-button [routerLink]="['/register']" routerLinkActive="active-link">Register</button>
-            <button mat-raised-button [routerLink]="['/login']" routerLinkActive="active-link">Login</button>
-        </span>
+        <div class="button-container">
+            <span id="home-buttons">
+                <button mat-raised-button [routerLink]="['/register']" routerLinkActive="active-link">Register</button>
+                <button mat-raised-button [routerLink]="['/login']" routerLinkActive="active-link">Login</button>
+            </span>    
+        </div>
     </div>
 </div>
