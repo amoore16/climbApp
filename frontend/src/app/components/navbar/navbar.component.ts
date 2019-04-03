@@ -14,6 +14,8 @@ import { UserService } from '../../services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
+  loggedIn: boolean = false;
+
   constructor(
     public snackBar: MatSnackBar,
     private userService: UserService,
@@ -21,9 +23,16 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.checkIfLoggedIn();
+  }
+
+  checkIfLoggedIn(){
+    this.userService.loadToken();
+    if (this.userService.authToken) this.loggedIn = true;
   }
 
   onLogoutClick(){
+    this.loggedIn = false;
     this.userService.logOut();
     this.openSnackBar("You are logged out", "close");
     this.router.navigate(['/login']);
