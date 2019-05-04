@@ -12,8 +12,8 @@
   <span>
     <button *ngIf="this.userService.user || loggedIn" mat-button [routerLink]="['/profile']" routerLinkActive="mat-raised-button">Profile</button>
     <button *ngIf="!loggedIn" mat-button [routerLink]="['/register']" routerLinkActive="mat-raised-button">Register</button>
-    <button *ngIf="!loggedIn"mat-button [routerLink]="['/login']" routerLinkActive="mat-raised-button">Login</button>
-    <button mat-button (click)="onLogoutClick()" href="#">Logout</button>
+    <button *ngIf="!loggedIn" mat-button [routerLink]="['/login']" routerLinkActive="mat-raised-button">Login</button>
+    <button *ngIf="loggedIn" mat-button (click)="onLogoutClick()" href="#">Logout</button>
   </span>
 </mat-toolbar>
   

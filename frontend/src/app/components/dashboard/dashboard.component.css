@@ -4,5 +4,6 @@ table {
 
 #table-container {
     width: 600px;
-    margin: 100px auto;
+    margin: 50px auto 0px auto;
+    overflow: auto;
 }

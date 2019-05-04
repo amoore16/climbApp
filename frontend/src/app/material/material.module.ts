@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatGridListModule,
     MatDividerModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatMenuModule,
@@ -37,7 +39,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatGridListModule,
     MatDividerModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
