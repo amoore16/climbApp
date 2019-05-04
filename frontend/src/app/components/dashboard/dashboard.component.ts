@@ -12,18 +12,21 @@ export class DashboardComponent implements OnInit {
   
   displayedColumns: string[] = ['firstName', 'lastName', 'userName', 'email'];
   dataSource: MatTableDataSource<User>;
-  
+  loading: boolean = true;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     
-
+    console.log('loading', this.loading);
     let usersObj = this.userService.getUsers();
     usersObj.subscribe((data)=> {
       let users = [];
       users.push(data);
+      if(users) this.loading = false;
+      
       this.dataSource = new MatTableDataSource<User>(users[0]);
       this.dataSource.paginator = this.paginator;
     });
