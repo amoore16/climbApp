@@ -25,7 +25,10 @@ export class DashboardComponent implements OnInit {
     usersObj.subscribe((data)=> {
       let users = [];
       users.push(data);
-      if(users) this.loading = false;
+      setTimeout(()=> {
+        
+        if(users) this.loading = false;  
+      }, 2000);
       
       this.dataSource = new MatTableDataSource<User>(users[0]);
       this.dataSource.paginator = this.paginator;
