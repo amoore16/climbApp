@@ -12,6 +12,9 @@ export class ClimbsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    setTimeout(()=> {
+      this.loading = false;
+    }, 5000);
   }
 
 }

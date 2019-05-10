@@ -1,0 +1,23 @@
+<form (ngSubmit)="OnSubmit()" autocomplete="none">
+    <div class="form-field">
+      <label>Route Type:</label>
+      <mat-radio-group>
+        <mat-radio-button value="top rope">Top Rope</mat-radio-button>
+        <mat-radio-button value="sport">Sport</mat-radio-button>
+        <mat-radio-button value="trad">Trad</mat-radio-button>
+        <mat-radio-button value="boulder">Boulder</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field appearance="outline">
+        <mat-label>Route Name</mat-label>
+        <input matInput placeholder="Route Name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Difficulty</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="boulderDiff" placeholer="Difficulty">
+            <mat-option *ngFor="let diff of boulderDiff"[value]="diff.value">
+                {{diff.viewValue}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
