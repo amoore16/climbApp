@@ -1,5 +1,9 @@
 form {
-    /* background-color: white; */
+    background-color: white;
+}
+
+mat-radio-group {
+    margin: 10px 0;
 }
 
 .form-field {
@@ -15,5 +19,5 @@ form {
 }
 
 mat-form-field { 
-    margin: 20px 0;
+    /* margin: 10px 0; */
 }

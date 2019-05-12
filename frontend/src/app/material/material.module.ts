@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Material Module Imports
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule, MatTableModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatTableModule, MatTabsModule, MatFormFieldModule, MatRadioModule, MatSelectModule, MatOptionModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -31,6 +31,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatTabsModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   exports: [
     MatMenuModule,
@@ -45,7 +49,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatOptionModule,
   ]
 })
 export class MaterialModule { }
