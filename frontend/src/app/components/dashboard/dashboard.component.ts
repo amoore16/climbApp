@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
       users.push(data);
       setTimeout(()=> {
         
-        if(users) this.loading = false;  
+        if(users) this.loading = false;  //remove this, simulates server load..
       }, 2000);
       
       this.dataSource = new MatTableDataSource<User>(users[0]);
