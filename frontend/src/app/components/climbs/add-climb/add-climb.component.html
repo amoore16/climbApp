@@ -1,23 +1,21 @@
-<form (ngSubmit)="OnSubmit()" autocomplete="none">
+<form (ngSubmit)="onSubmit()" [formGroup]="addClimbForm" autocomplete="none">
     <div class="form-field">
       <label>Route Type:</label>
-      <mat-radio-group>
-        <mat-radio-button value="top rope">Top Rope</mat-radio-button>
-        <mat-radio-button value="sport">Sport</mat-radio-button>
-        <mat-radio-button value="trad">Trad</mat-radio-button>
-        <mat-radio-button value="boulder">Boulder</mat-radio-button>
+      <mat-radio-group formControlName="routeType" (click)="onSelect($event)">
+        <mat-radio-button *ngFor="let route of routeType" [value]="route.value">
+          {{route.viewValue}}
+        </mat-radio-button>
       </mat-radio-group>
       <mat-form-field appearance="outline">
         <mat-label>Route Name</mat-label>
-        <input matInput placeholder="Route Name">
+        <input matInput placeholder="Route Name" formControlName="routeName">
       </mat-form-field>
-      <mat-form-field>
         <mat-label>Difficulty</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="boulderDiff" placeholer="Difficulty">
-            <mat-option *ngFor="let diff of boulderDiff"[value]="diff.value">
+        <mat-select name="diffSelect" placeholer="Difficulty" formControlName="routeDifficulty">
+            <mat-option *ngFor="let diff of diffSelect" [value]="diff.value">
                 {{diff.viewValue}}
             </mat-option>
         </mat-select>
-      </mat-form-field>
+        <button mat-raised-button>Submit</button>
     </div>
   </form>
