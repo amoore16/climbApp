@@ -81,17 +81,12 @@ export class AddClimbComponent implements OnInit {
       }
     }, 200);
     
-    // if (value === "boulder") {
-    //   this.addClimbForm.get('routeDifficulty').reset;
-    //   this.diffSelect = this.boulderDiff;
-    // } else {
-    //   this.diffSelect = this.standardDiff;
-    // }
   }
 
   onSubmit(){
     console.log('hello')
     console.log('climb form: ', this.addClimbForm.value);
+    this.addClimbForm.reset();
   }
 
 }
