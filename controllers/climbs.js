@@ -13,8 +13,8 @@ module.exports = {
     },
 
     newClimb: async (req, res, next) => {
-        const user = await User.findById(req.value.body.user);
-        const newClimb = req.value.body;
+        const user = await User.findById(req.body.user);
+        const newClimb = req.body;
         delete newClimb.user;
         const climb = new Climb(newClimb);
         climb.user = user;

@@ -4,6 +4,7 @@ import { BoulderRatings } from '../../../models/boulderRatings';
 import { StandardRatings } from '../../../models/standardRatings';
 import { FormGroup, FormControl } from '@angular/forms';
 
+import { AddClimbService } from '../../../add-climb.service';
 @Component({
   selector: 'app-add-climb',
   templateUrl: './add-climb.component.html',
@@ -13,7 +14,7 @@ export class AddClimbComponent implements OnInit {
 
   addClimbForm = new FormGroup({
     routeType: new FormControl(''),
-    routeName: new FormControl(''),
+    name: new FormControl(''),
     routeDifficulty: new FormControl('')
   });
 
@@ -29,10 +30,11 @@ export class AddClimbComponent implements OnInit {
     {value: 'boulder', viewValue: 'Boulder'}
   ];
 
-  constructor() { }
+  constructor(public addClimbService: AddClimbService) { }
 
   ngOnInit() {
     this.diffSelect = this.standardDiff;
+    this.addClimbService.getProfileId();
   }
   
   onSelect(event){
@@ -47,6 +49,11 @@ export class AddClimbComponent implements OnInit {
   }
 
   onSubmit(){
+
+    this.addClimbService.addClimb(this.addClimbForm.value).subscribe(data => {
+      console.log(data);
+    });
+
     this.addClimbForm.reset();
   }
 

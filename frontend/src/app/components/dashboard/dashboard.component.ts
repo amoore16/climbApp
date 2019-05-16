@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     
-    console.log('loading', this.loading);
     let usersObj = this.userService.getUsers();
     usersObj.subscribe((data)=> {
       let users = [];
@@ -28,7 +27,7 @@ export class DashboardComponent implements OnInit {
       setTimeout(()=> {
         
         if(users) this.loading = false;  //remove this, simulates server load..
-      }, 2000);
+      }, 1000);
       
       this.dataSource = new MatTableDataSource<User>(users[0]);
       this.dataSource.paginator = this.paginator;

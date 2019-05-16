@@ -57,7 +57,6 @@ export class UserService {
   loadToken(){
     const token = localStorage.getItem('id_token');
     this.authToken = token;
-    console.log('token', this.authToken);
   }
 
   getProfile(): Observable<any>{
@@ -68,8 +67,6 @@ export class UserService {
         'authorization' : 'Bearer ' + this.authToken
      })
     }
-    console.log('newHeaders', authHeaders);
-    // console.log(httpOptions.headers.append('authorization: Bearer', 'hello'));    
     return this.http.get<User>(this.usersUrl + 'auth', authHeaders ).pipe(
       tap( data => {return data}),
         catchError( err => {return err})
