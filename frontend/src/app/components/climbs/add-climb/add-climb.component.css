@@ -11,6 +11,7 @@ mat-radio-group {
     flex-direction: column;
     padding: 10px 100px;
     /* background-color: black; */
+    
 }
 
 .form-field .mat-radio-button {
@@ -20,4 +21,6 @@ mat-radio-group {
 
 #addClimbForm {
     width: 600px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
 }
