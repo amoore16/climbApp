@@ -13,9 +13,9 @@ import { AddClimbService } from '../../../add-climb.service';
 export class AddClimbComponent implements OnInit {
 
   addClimbForm = new FormGroup({
-    routeType: new FormControl(''),
+    type: new FormControl(''),
     name: new FormControl(''),
-    routeDifficulty: new FormControl('')
+    rating: new FormControl('')
   });
 
   selectedValue: string;
@@ -38,9 +38,9 @@ export class AddClimbComponent implements OnInit {
   }
   
   onSelect(event){
-    this.addClimbForm.get('routeDifficulty').reset();
+    this.addClimbForm.get('rating').reset();
     setTimeout(() => {
-      if (this.addClimbForm.value.routeType === "boulder"){
+      if (this.addClimbForm.value.type === "boulder"){
         this.diffSelect = this.boulderDiff;
       } else {
         this.diffSelect = this.standardDiff;

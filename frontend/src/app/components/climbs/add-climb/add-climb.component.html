@@ -6,13 +6,13 @@
         <input matInput placeholder="Route Name" formControlName="name">
       </mat-form-field>
       <label>Route Type:</label>
-      <mat-radio-group formControlName="routeType" (click)="onSelect($event)">
+      <mat-radio-group formControlName="type" (click)="onSelect($event)">
         <mat-radio-button *ngFor="let route of routeType" [value]="route.value">
           {{route.viewValue}}
         </mat-radio-button>
       </mat-radio-group>
       <mat-label>Difficulty</mat-label>
-      <mat-select name="diffSelect" placeholer="Difficulty" formControlName="routeDifficulty">
+      <mat-select name="diffSelect" placeholer="Difficulty" formControlName="rating">
         <mat-option *ngFor="let diff of diffSelect" [value]="diff.value">
           {{diff.viewValue}}
         </mat-option>

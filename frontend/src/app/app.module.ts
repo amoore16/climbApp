@@ -21,6 +21,7 @@ import { ValidateService } from './services/validate.service';
 import { UserService } from './services/user.service';
 import { ClimbsComponent } from './components/climbs/climbs.component';
 import { AddClimbComponent } from './components/climbs/add-climb/add-climb.component';
+import { AllClimbsComponent } from './components/climbs/all-climbs/all-climbs.component';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -42,6 +43,7 @@ const appRoutes = [
     DashboardComponent,
     ClimbsComponent,
     AddClimbComponent,
+    AllClimbsComponent,
   ],
   imports: [
     BrowserModule,
