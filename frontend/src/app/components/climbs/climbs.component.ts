@@ -15,16 +15,8 @@ export class ClimbsComponent implements OnInit {
   constructor(public addClimbService: AddClimbService) { }
 
   ngOnInit() {
-    setTimeout(()=> {       // remove this, simulates server load..
-      this.loading = false;
+   
 
-      
-    }, 2000);
-
-    let climbsObj = this.addClimbService.getClimbs();
-    climbsObj.subscribe( climbs => {
-      console.log(climbs);
-    })
 
   }
 
