@@ -8,7 +8,7 @@ module.exports = {
     },
 
     getClimb: async (req, res, next) => {
-        const climb = await Climb.findById(req.value.params.climbId);
+        const climb = await Climb.findById(req.params.climbId);
         res.status(200).json(climb);
     },
 

@@ -53,7 +53,6 @@ export class AllClimbsComponent implements OnInit {
   }
 
   getUserName(climbData) {
-    console.log(climbData);
     let userName: string = null;
     if (this.users && climbData.user[0]) {
       this.users.forEach( user => {
