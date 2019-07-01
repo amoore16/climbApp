@@ -14,7 +14,12 @@ export class MyClimbsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.myClimbsService.getUserClimbs();
+    let myClimbs = this.myClimbsService.getUserClimbs();
+    console.log('my climbs', myClimbs);
+
+    this.myClimbsService.myClimbs.subscribe(data => {
+      console.log('dataaaa: ', data);
+    })
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 
 import { UserService } from '../../../services/user.service';
@@ -14,7 +14,9 @@ let httpOptions = {
 })
 export class MyClimbsService {
 
-  private climbsUrl = 'http://localhost:3000/climbs/';
+  myClimbs = new Subject;
+
+  private climbsUrl = 'http://localhost:3000/climbs/';  //TODO: move this to thing
 
   constructor(private http: HttpClient, public userService: UserService) { }
 
@@ -24,17 +26,15 @@ export class MyClimbsService {
     let user = this.userService.getProfile();
     user.subscribe((user) => {
       user.climbs.forEach( climb => {
-        console.log('climb: ', climb);
         let returnedClimb = this.getClimbData(climb)
         returnedClimb.subscribe((climbData) => {
-          console.log('climbdata:', climbData);
+          this.myClimbs.next(climbData);
         })
       })
     })
   }
 
   getClimbData(climb){
-    console.log('getting climb data with...', this.climbsUrl + climb,);
     return this.http.get<any>(this.climbsUrl + climb, httpOptions).pipe(
       tap(data => { return data},
         err => { return err })
