@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../../models/user';
 
 @Component({
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   dataSource: MatTableDataSource<User>;
   loading: boolean = true;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(private userService: UserService) { }
 

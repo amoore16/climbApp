@@ -1,5 +1,6 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { AddClimbService } from '../../../add-climb.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,7 +16,7 @@ export class AllClimbsComponent implements OnInit {
   loading: boolean = true;
   users: any;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(public addClimbService: AddClimbService, public userService: UserService) { }
 
