@@ -9,6 +9,8 @@ import { MyClimbsService } from './my-climbs.service';
 })
 export class MyClimbsComponent implements OnInit {
 
+  loading = true;
+
   constructor(
     private myClimbsService: MyClimbsService
     ) { }
