@@ -3,4 +3,41 @@
 
 
     <!-- main -->
+    <div class="main_view">
+        <table *ngIf="!loading" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef> 
+                    Route Type 
+                </th>
+                <td mat-cell *matCellDef="let climb">
+                    {{climb.type}} 
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>
+                    Route Name
+                </th>
+                <td mat-cell *matCellDef="let climb">
+                    {{climb.name}}
+                </td>    
+            </ng-container>
+            
+            <ng-container matColumnDef="rating">
+                <th mat-header-cell *matHeaderCellDef>
+                    Rating
+                </th>
+                <td mat-cell *matCellDef="let climb">
+                    {{climb.rating}}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
 </div>
