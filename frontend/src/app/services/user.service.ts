@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 
 import { User } from '../models/user';
@@ -20,6 +20,7 @@ export class UserService {
 
   user: any;
   authToken: any;
+  authToken$ = new Subject();
 
   getUsers(): Observable<User> {
     return this.http.get<User>(this.usersUrl)
@@ -45,11 +46,13 @@ export class UserService {
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
+    this.authToken$.next(token);
     this.user = user;
   }
 
   logOut(){
     this.authToken = null;
+    this.authToken$.next(null);
     this.user = null;
     localStorage.clear();
   }

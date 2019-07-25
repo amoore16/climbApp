@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { MyClimbsService } from './my-climbs.service';
 
 @Component({
@@ -10,17 +9,32 @@ import { MyClimbsService } from './my-climbs.service';
 })
 export class MyClimbsComponent implements OnInit {
 
+  displayedColumns: string[] = ['name', 'type', 'rating'];
+  dataSource: MatTableDataSource<any>;
+  loading = true;
+  climbs: any;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(
     private myClimbsService: MyClimbsService
     ) { }
 
   ngOnInit() {
-    let myClimbs = this.myClimbsService.getUserClimbs();
-    console.log('my climbs', myClimbs);
+    this.myClimbsService.getUserClimbs();
 
+    let climbs = [];
     this.myClimbsService.myClimbs.subscribe(data => {
-      console.log('dataaaa: ', data);
-    })
+      if (data) {
+        climbs.push(data);
+      }
+      this.climbs = climbs;
+      this.dataSource = new MatTableDataSource<any>(this.climbs);
+      this.dataSource.paginator = this.paginator;
+    });
+    setTimeout(()=> {
+      if(this.climbs) this.loading = false;
+    },2000);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +12,7 @@ import { UserService } from '../../services/user.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
   loggedIn: boolean = false;
 
@@ -20,15 +20,17 @@ export class NavbarComponent implements OnInit {
     public snackBar: MatSnackBar,
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {
+    this.userService.authToken$.subscribe((token)=> {
+      if (token) this.loggedIn = true;
+    });
+   }
 
   ngOnInit() {
-    this.checkIfLoggedIn();
   }
 
-  checkIfLoggedIn(){
-    this.userService.loadToken();
-    if (this.userService.authToken) this.loggedIn = true;
+  ngOnDestroy() {
+    this.userService.authToken$.unsubscribe();
   }
 
   onLogoutClick(){
