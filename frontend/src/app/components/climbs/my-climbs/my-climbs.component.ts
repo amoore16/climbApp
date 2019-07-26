@@ -13,8 +13,9 @@ export class MyClimbsComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   loading = true;
   climbs: any;
+  opts: any;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(
     private myClimbsService: MyClimbsService
