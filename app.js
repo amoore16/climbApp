@@ -49,7 +49,9 @@ app.use('/climbs', climbs);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // index route
-
+app.get('/', (req, res) => {
+    res.send('Invalid endpoint');   
+});
 
 // // every route goes to index
 app.get('*', (req, res) => {
