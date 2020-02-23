@@ -46,7 +46,17 @@ app.use('/climbs', climbs);
 //     console.log(err);
 // });
 //error handler function
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// index route
+// app.get('/', (req, res) => {
+//     res.send('Invalid endpoint');   
+// });
+
+// // every route goes to index
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
 
 // start server
 if (!process.env.PORT) { const env = require('./env.js'); }
