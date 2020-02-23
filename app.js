@@ -33,19 +33,20 @@ app.use('/users', users);
 app.use('/climbs', climbs);
 
 //catch errors
-app.use((err, res, next) => {
-    const error = app.get('env') === 'development' ? err: {};
-    const status = err.status || 500;
+// app.use((err, res, next) => {
+//     const error = app.get('env') === 'development' ? err: {};
+//     const status = err.status || 500;
 
-    res.status(status).json({
-        error: {
-            message: error.message
-        }
-    });
+//     res.status(status).json({
+//         error: {
+//             message: error.message
+//         }
+//     });
 
-    console.log(err);
-});
+//     console.log(err);
+// });
 //error handler function
+app.use(express.static(path.join(__dirname, 'public')));
 
 // start server
 if (!process.env.PORT) { const env = require('./env.js'); }
