@@ -14,7 +14,7 @@ let httpOptions = {
 })
 export class UserService {
 
-  private usersUrl = 'http://localhost:3000/users/';
+  private usersUrl = 'users/';
 
   constructor(private http: HttpClient) { }
 

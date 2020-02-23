@@ -16,7 +16,7 @@ export class MyClimbsService {
 
   myClimbs = new Subject;
 
-  private climbsUrl = 'http://localhost:3000/climbs/';  //TODO: move this to thing
+  private climbsUrl = 'climbs/';  //TODO: move this to thing
 
   constructor(private http: HttpClient, public userService: UserService) { }
 

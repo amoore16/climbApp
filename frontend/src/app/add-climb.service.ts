@@ -14,7 +14,7 @@ let httpOptions = {
 })
 export class AddClimbService {
 
-  private climbsUrl = 'http://localhost:3000/climbs/';
+  private climbsUrl = 'climbs/';
 
   constructor(private http: HttpClient, public userService: UserService) { }
 
