@@ -1,3 +1,35 @@
+<<<<<<< Updated upstream
 <p>
   climbs works!
 </p>
+=======
+<div class="container-card" id="climbs_card">
+    <div class="display-climbs" *ngIf="!addingClimb">
+        <mat-toolbar color="primary">
+            Climbs
+            <span class="example-spacer"></span>
+                <button mat-mini-fab (click)="addClimb()">
+                    <mat-icon>add</mat-icon>
+                </button>
+        </mat-toolbar>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="All Climbs">
+                <div class="main">
+                    <app-all-climbs></app-all-climbs>
+                </div>
+            </mat-tab>
+        <mat-tab *ngIf="loggedIn" label="My Climbs">
+            <div class="main">
+                <app-my-climbs></app-my-climbs>
+            </div>
+        </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="add-climb" *ngIf="addingClimb">
+        <mat-toolbar color="primary">
+            Add Climb
+        </mat-toolbar>
+        <app-add-climb></app-add-climb>
+    </div>
+</div>
+>>>>>>> Stashed changes

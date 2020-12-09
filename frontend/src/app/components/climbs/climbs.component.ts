@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClimbsComponent implements OnInit {
 
-  constructor() { }
+  loading: boolean = true;
+  climbs: any;
+  loggedIn: boolean = false;
+  addingClimb: boolean = false;
+
+  constructor(public addClimbService: AddClimbService) { }
 
   ngOnInit() {
+  }
+
+  addClimb() {
+    this.addingClimb = true;
   }
 
 }
