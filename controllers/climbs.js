@@ -8,13 +8,13 @@ module.exports = {
     },
 
     getClimb: async (req, res, next) => {
-        const climb = await Climb.findById(req.value.params.climbId);
+        const climb = await Climb.findById(req.params.climbId);
         res.status(200).json(climb);
     },
 
     newClimb: async (req, res, next) => {
-        const user = await User.findById(req.value.body.user);
-        const newClimb = req.value.body;
+        const user = await User.findById(req.body.user);
+        const newClimb = req.body;
         delete newClimb.user;
         const climb = new Climb(newClimb);
         climb.user = user;

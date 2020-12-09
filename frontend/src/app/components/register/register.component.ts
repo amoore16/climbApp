@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ValidateService } from '../../services/validate.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
 
   addUser(user) {
     this.userService.addUser(user).subscribe((data) => {
-      console.log('data', data);
       if (data.success) {
         this.openSnackBar("Successfully Registered!", "close");
         this.registerForm.reset('');
@@ -56,7 +55,6 @@ export class RegisterComponent implements OnInit {
         }, 1000);
       } else {
         this.openSnackBar(data.reason, "close");
-        console.log(data);
         this.registerForm.reset('');
       }
 

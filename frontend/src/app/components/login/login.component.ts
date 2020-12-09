@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../services/user.service';
@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
           if (data.success) {
             this.userService.storeUserData(data.token, data.user);
             this.openSnackBar("Successfully Logged in", "close");
-            console.log(data.user);
             this.loginForm.reset('');
             setTimeout(() => {
               this.router.navigate(['/dashboard']);
@@ -44,7 +43,6 @@ export class LoginComponent implements OnInit {
           else {
             this.openSnackBar(data.reason, "close");
             this.loginForm.controls['password'].reset('');
-            console.log(data.reason);
           }
         }
       );

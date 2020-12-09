@@ -1,0 +1,36 @@
+<div id="addClimbForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="addClimbForm" autocomplete="none">
+    <div class="form-field">
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Route Name</mat-label>
+        <input matInput placeholder="Route Name" formControlName="name">
+      </mat-form-field>
+      
+        <mat-label>Route Type</mat-label>
+        <mat-radio-group formControlName="type" (click)="onSelect($event)">
+          <mat-radio-button *ngFor="let route of routeType" [value]="route.value">
+            {{route.viewValue}}
+          </mat-radio-button>
+        </mat-radio-group>  
+
+      <mat-form-field appearance="outline">
+        <mat-label>Difficulty</mat-label>
+        <mat-select name="diffSelect" placeholer="Difficulty" formControlName="rating">
+          <mat-option *ngFor="let diff of diffSelect" [value]="diff.value">
+            {{diff.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <mat-toolbar class="align-toolbar">
+      <span></span>
+      <span class="fill-remaining-space"></span>
+      <span><button mat-raised-button color="accent" type="submit">
+          Submit
+        </button>
+      </span>
+    </mat-toolbar>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+form {
+    background-color: white;
+}
+
+mat-radio-group {
+    margin: 10px 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 100px;
+    /* background-color: black; */
+    
+}
+
+.form-field .mat-radio-button {
+    margin: 0 5px;
+    padding: 10px 0;
+}
+
+#addClimbForm {
+    width: 600px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+}

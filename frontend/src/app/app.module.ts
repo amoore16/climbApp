@@ -20,6 +20,9 @@ import { MaterialModule } from './material/material.module';
 import { ValidateService } from './services/validate.service';
 import { UserService } from './services/user.service';
 import { ClimbsComponent } from './components/climbs/climbs.component';
+import { AddClimbComponent } from './components/climbs/add-climb/add-climb.component';
+import { AllClimbsComponent } from './components/climbs/all-climbs/all-climbs.component';
+import { MyClimbsComponent } from './components/climbs/my-climbs/my-climbs.component';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -40,6 +43,9 @@ const appRoutes = [
     ProfileComponent,
     DashboardComponent,
     ClimbsComponent,
+    AddClimbComponent,
+    AllClimbsComponent,
+    MyClimbsComponent,
   ],
   imports: [
     BrowserModule,
